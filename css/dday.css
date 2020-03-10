@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body{
+   background: #f6e6b7;
+}
+button{
+   float: right;
+   padding: 20px 20px 0 0;
+}
+
+.test{
+   width: 100%;
+   position: absolute;
+   left: 50%;
+   top: 45%;
+   transform: translate(-50%, -50%);
+}
+
+h1{
+   text-align: center;
+   font-size: 18px;
+   font-weight: 200;
+   margin-bottom: 20px;
+}
+.container {
+   margin: 0 auto;
+   display: flex;
+   width: 88%;
+}
+
+/* Base elements */
+.select {
+   position: relative;
+   display: inline-block;
+   width: 100%;
+   margin: 0 5px;
+}
+
+/* SELECT - Normal State */
+.select select {
+   display: inline-block;
+   width: 100%;
+   padding: 10px 15px;
+   cursor: pointer;
+   border: 0;
+   outline: 0;
+   /* border: 1px solid #333; */
+   appearance: none;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+}
+   
+
+    /* SELECT - Hover */
+/* .select select:hover,
+.select select:focus {
+   color: #000;
+   background: rgba(0,0,0,0.05);
+
+} */
+    /* SELECT - Arrow */
+.select:before {
+   content: '';
+   position: absolute;
+   transform: translateY(-50%);
+   top: 50%;
+   right: 15px;
+   width: 0;
+   height: 0;
+   pointer-events: none;
+   border-width: 8px 5px 0 5px;
+   border-style: solid;
+   border-color: #333 transparent transparent transparent;
+   z-index: 1;
+}
+
+    /* SELECT - Disabled */
+.select select:disabled {
+   pointer-events: none;
+   opacity: .5;
+}
+/*  */
+.container>.btn-s{
+   position: absolute;
+   border: none;
+   background: none;
+   box-shadow: none;
+   /* float: right; */
+   width: 70px;
+   /* font-size: 36px; */
+   color: #f6e5b6;
+   right: 0;
+   top: 32px;
+}

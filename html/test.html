@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <title>Document</title>
+    <style>
+        .container {
+        width: 30%;
+        margin: 0 auto;
+        display: flex;
+        }
+        /*
+        :: SELECT
+
+        <div class="select">
+            <select>
+            <option>Please Select</option>
+            <option>Option</option>
+            <option>Option</option>
+            </select>
+        </div>
+
+        ------------------------------------------------ */
+
+        /* Base elements */
+        .select {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin: 0 5px
+        }
+
+        /* SELECT - Normal State */
+        .select select {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: 0;
+            outline: 0;
+            border: 1px solid #333;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* SELECT - Hover */
+        .select select:hover,
+        .select select:focus {
+            color: #000;
+            background: rgba(0,0,0,0.05);
+
+        }
+
+        /* SELECT - Arrow */
+        .select:before {
+        content: '';
+        position: absolute;
+            transform: translateY(-50%);
+        top: 50%;
+            right: 15px;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-width: 8px 5px 0 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        z-index: 1;
+        }
+
+        /* SELECT - Disabled */
+        .select select:disabled {
+            pointer-events: none;
+            opacity: .5;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="select">
+            <select id="select_year">
+              <option>Year</option>
+            </select>
+        </div>
+        <div class="select">
+            <select id="select_month">
+                <option>Month</option>
+            </select>
+        </div>
+        <div class="select">
+          <select id="select_day">
+            <option>Day</option>
+          </select>
+        </div>
+    </div>
+</body>
+<script>
+    /* :: DATE PICKER
+ ------------------------------------------------ */
+
+// :: DAY
+        var $select_day = $("#select_day");
+        for(var i = 1; i < 32; i++) {
+        var day_number = i;
+        $('<option>')
+            .val(('0' + day_number).slice(-2))   // set the value
+            .text(i)    // set the text in in the <option>
+            .appendTo($select_day);
+        }
+
+
+        // :: MONTH
+        var $select_month = $("#select_month");
+        var options = ["January","February","March","April","May","June", "July","August","September","October","November","December"];
+        for(var i = 0; i < options.length; i++) {
+        var month_number = i + 1;
+        $('<option>')
+            .val(('0' + month_number).slice(-2))          // set the value
+            .text(options[i])    // set the text in in the <option>
+            .appendTo($select_month);
+        }
+
+
+        // :: YEAR
+        //var $select_year = $("#select_year");
+
+        // Get the current year
+        var year = new Date().getFullYear()
+        // console.log(year);
+        
+        var $select_year = $('#select_year').empty();
+    
+        
+        for(var i = 0;  i < 60; i++) {
+        $('<option>')
+            .val(year - i)     // set the value
+            .text(year - i)    // set the text in in the <option>
+            .appendTo($select_year);
+        }
+        console.log($select_year);
+</script>
+</html>
